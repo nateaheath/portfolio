@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 5: Color Studies | Nathanael Heath</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #172832;
+      color: #dfeaf0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1320px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .return-bar {
+      padding: 26px 0;
+    }
+
+    .return-bar.top {
+      border-bottom: 1px solid rgba(223, 234, 240, .28);
+    }
+
+    .return-bar.bottom {
+      margin-top: 70px;
+      padding-bottom: 60px;
+      border-top: 1px solid rgba(223, 234, 240, .28);
+    }
+
+    .return-bar a,
+    .return-bar a:hover {
+      color: inherit;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    header {
+      padding: 70px 0 55px;
+    }
+
+    .eyebrow,
+    .day-label {
+      color: #afbec7;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 24px 0 0;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+
+    .artist-section {
+      padding: 25px 0 55px;
+    }
+
+    .artist-section + .artist-section {
+      padding-top: 65px;
+      border-top: 1px solid rgba(223, 234, 240, .28);
+    }
+
+    h2 {
+      margin: 18px 0;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    .description {
+      max-width: 850px;
+      margin: 0 0 24px;
+      font-size: 1.12rem;
+    }
+
+    .source {
+      margin: 0 0 40px;
+      color: #afbec7;
+      font-size: .95rem;
+      font-style: italic;
+    }
+
+    .source a,
+    .source a:visited,
+    .source a:hover {
+      color: inherit;
+      font: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .artwork-link {
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .artwork-link img {
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: contain;
+      background: transparent;
+      transition: opacity .25s ease;
+    }
+
+    .artwork-link:hover img {
+      opacity: .65;
+    }
+
+    figcaption {
+      padding: 16px 4px 0;
+      text-align: center;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    figcaption strong,
+    figcaption span {
+      display: block;
+    }
+
+    figcaption span {
+      color: #afbec7;
+    }
+
+    .reflection {
+      max-width: 850px;
+      margin: 40px auto 0;
+      text-align: center;
+    }
+
+    .reflection h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .reflection p {
+      margin: 0;
+      font-size: 1.12rem;
+    }
+
+    .image-viewer {
+      max-width: 95vw;
+      max-height: 95vh;
+      margin: auto;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .image-viewer::backdrop {
+      background: rgba(0, 0, 0, .88);
+    }
+
+    .image-viewer img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    @media (max-width: 750px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .artwork-link img {
+        height: auto;
+        max-height: 520px;
+      }
+
+      header {
+        padding-top: 50px;
+      }
+    }
+
+.artist-source {
+  font-size: 0.85em;
+}
+
+.artist-source a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div class="page">
+
+    <nav class="return-bar top" aria-label="Return to assignments">
+      <a href="../index.html#assignments">← Back to assignments</a>
+    </nav>
+
+    <header>
+      <div class="eyebrow">ARHA 295 / Week 5</div>
+      <h1>Color studies</h1>
+    </header>
+
+    <main>
+
+      <!-- MONDAY ARTIST -->
+      <section class="artist-section" aria-labelledby="monday-artist">
+        <div class="day-label">Monday / Artist of the day</div>
+
+        <h2 id="monday-artist">Ebony G. Patterson</h2>
+
+        <p class="description">
+          Ebony G. Patterson is a Jamaican artist whose layered works combine
+  photography, textiles, beads, glitter, and floral imagery. Her intricately
+  embellished compositions explore visibility, mourning, and the relationship
+  between beauty and violence. I am drawn to how her vivid colors and dense
+  patterns attract the eye while partially concealing the figures within
+  them, making looking closely an important part of encountering her work.
+        </p>
+
+        <p class="artist-source">
+  <em>
+    Artist and artwork information found at
+    <a href="https://www.moniquemeloche.com/artists/49-ebony-g.-patterson/works/"
+       target="_blank"
+       rel="noopener noreferrer">moniquemeloche</a>.
+  </em>
+</p>
+        <div class="gallery">
+          <figure>
+            <a class="artwork-link" href="../images/week-5-monday-1.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/patterson-1.jpg"
+                alt="[Describe the first painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>Brella Crew — From the Family Series</strong>
+              <span>Mixed Media, 2011-13</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a class="artwork-link" href="../images/week-5-monday-2.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/patterson-2.jpg"
+                alt="[Describe the second painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>Dead Tree in the Forest</strong>
+              <span>Mixed Media on Paper, 2013</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a class="artwork-link" href="../images/week-5-monday-3.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/patterson-3.jpg"
+                alt="[Describe the third painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>II Treez</strong>
+              <span>Mixed Media on Paper, 2013</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="reflection">
+          <h3>On color</h3>
+          <p>
+            Patterson’s vivid pinks, reds, and greens initially make her compositions feel lush and celebratory. Repeated flowers and elaborate patterns draw my attention across the surface, but their density also makes the figures harder to distinguish. In the garden work shown above, bright red flowers stand out against dark foliage before the reclining figure becomes apparent. To me, this delayed recognition creates an unsettling tension: the same colors that invite us to look can also distract us from the person within the scene.
+          </p>
+        </div>
+      </section>
+
+      <!-- WEDNESDAY ARTIST -->
+      <section class="artist-section" aria-labelledby="wednesday-artist">
+        <div class="day-label">Wednesday / Artist of the day</div>
+
+        <h2 id="wednesday-artist">Hurvin Anderson</h2>
+
+        <p class="description">
+           Hurvin Anderson is a British painter of Jamaican heritage whose work
+  explores memory, identity, and belonging through landscapes and spaces
+  of everyday social life. His paintings often feature Caribbean scenery,
+  barbershops, and views interrupted by fences or decorative grilles.
+  I am drawn to how his layered colors and patterns make these spaces
+  feel both inviting and distant, connecting with my own interest in
+  using landscape to express identity.
+        </p>
+
+      <p class="artist-source">
+  <em>
+    Artist and artwork information found at
+    <a href="https://www.thomasdanegallery.com/artists/28-hurvin-anderson/works/"
+       target="_blank"
+       rel="noopener noreferrer">Thomas Dane Gallery</a>.
+  </em>
+</p>
+
+        <div class="gallery">
+          <figure>
+            <a class="artwork-link" href="../images/week-5-wednesday-1.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/anderson-1.jpg"
+                alt="[Describe the first painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>Genera Palmarum</strong>
+              <span>Acrylic, Oil on Canvas, 2021</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a class="artwork-link" href="../images/week-5-wednesday-2.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/anderson-2.jpg"
+                alt="[Describe the second painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>Constructed View</strong>
+              <span>Oil on Canvas, 2010</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a class="artwork-link" href="../images/week-5-wednesday-3.jpg">
+              <img
+                src="/Users/nathanaelheath/Desktop/images/anderson-3.jpg"
+                alt="[Describe the third painting]"
+              >
+            </a>
+            <figcaption>
+              <strong>Shanty Town</strong>
+              <span>Acrylic on Paper, 2019</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="reflection">
+          <h3>On color</h3>
+          <p>
+           Anderson’s layered greens make these landscapes feel lush without making them entirely peaceful. In Genera Palmarum, the contrast between light and dark foliage draws my eye into the vegetation, while its density makes the space difficult to enter visually. Looking across Constructed View, Genera Palmarum, and Shanty Town, I am interested in how repeated shapes and overlapping colors complicate the view rather than presenting a simple tropical scene. To me, this creates a feeling of familiarity mixed with distance.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="return-bar bottom" aria-label="Return to assignments">
+      <a href="../index.html#assignments">← Back to assignments</a>
+    </nav>
+
+  </div>
+
+  <!-- ONE IMAGE VIEWER FOR ALL SIX PAINTINGS -->
+  <dialog class="image-viewer" aria-label="Enlarged artwork">
+    <img alt="">
+  </dialog>
+
+  <script>
+    const viewer = document.querySelector(".image-viewer");
+    const viewerImage = viewer.querySelector("img");
+
+    document.querySelectorAll(".artwork-link").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const photo = link.querySelector("img");
+        viewerImage.src = photo.currentSrc || photo.src;
+        viewerImage.alt = photo.alt;
+
+        viewer.showModal();
+      });
+    });
+
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) {
+        viewer.close();
+      }
+    });
+  </script>
+</body>
+</html>

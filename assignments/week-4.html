@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 4: Sketchbook | Nathanael Heath</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #172832;
+      color: #dfeaf0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .return-bar {
+      padding: 26px 0;
+    }
+
+    .return-bar.top {
+      border-bottom: 1px solid rgba(223, 234, 240, .28);
+    }
+
+    .return-bar.bottom {
+      margin-top: 70px;
+      padding-bottom: 60px;
+      border-top: 1px solid rgba(223, 234, 240, .28);
+    }
+
+    .return-bar a,
+    .return-bar a:hover {
+      color: inherit;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    header {
+      padding: 70px 0 45px;
+    }
+
+    .eyebrow {
+      color: #afbec7;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 24px 0 0;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.8rem;
+    }
+
+    .study + .study {
+      margin-top: 70px;
+    }
+
+    .description {
+      max-width: 800px;
+      margin: 0 0 30px;
+      font-size: 1.1rem;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .artwork-link {
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .artwork-link img {
+      display: block;
+      width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      transition: opacity .25s ease;
+    }
+
+    .artwork-link:hover img {
+      opacity: .65;
+    }
+
+    figcaption {
+      margin-top: 16px;
+      color: #afbec7;
+      text-align: center;
+      font-size: .95rem;
+    }
+
+    figcaption strong,
+    figcaption span {
+      display: block;
+    }
+
+    .reflection {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+
+    .reflection h3 {
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    .reflection p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .image-viewer {
+      max-width: 95vw;
+      max-height: 95vh;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .image-viewer::backdrop {
+      background: rgba(0, 0, 0, .88);
+    }
+
+    .image-viewer img {
+      display: block;
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    .viewer-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .75);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+.source-link,
+.source-link:visited,
+.source-link:hover,
+.source-link:active {
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <nav class="return-bar top" aria-label="Return to assignments">
+      <a href="../index.html#assignments">← Back to assignments</a>
+    </nav>
+
+    <header>
+      <div class="eyebrow">ARHA 295 / Week 4</div>
+      <h1>Sketchbook</h1>
+    </header>
+
+    <main>
+      <!-- REFERENCE IMAGE -->
+      <section class="study">
+        <h2>Reference / Two-page spread</h2>
+
+      <p class="description">
+  An
+  <a class="source-link"
+     href="https://pin.it/3COXRoTyk"
+     target="_blank"
+     rel="noopener">urban sketchbook spread</a>
+  combining expressive black linework with loose watercolor washes.
+</p>
+       <figure>
+  <a class="artwork-link" href="../images/IMG_2129.JPG">
+    <img
+      src="/Users/nathanaelheath/Desktop/images/sketchbook-1.JPG"
+      alt="An urban sketchbook spread with black linework and watercolor washes."
+    >
+  </a>
+
+  <figcaption>
+    <strong>Artist unidentified</strong>
+    <span>Appears to be ink and watercolor on paper</span>
+  </figcaption>
+</figure>
+      </section>
+
+      <!-- YOUR RESPONSE -->
+      <section class="study">
+        <h2>My sketchbook response</h2>
+
+        <p class="description">
+        I was primarily inspired by the artist's use of bold lines for the subjects in the foreground that blend into the muted watercolors in the background. There is an interesting facet to human presence in urban landscapes, pointing to the dynamic and interwoven nature of our relationship with space and place.
+        </p>
+
+        <!--
+          When your response photo is ready, save it in images/
+          as week-4-response.jpg and remove these comment markers.
+
+        <figure>
+          <a class="artwork-link" href="../images/week-4-response.jpg">
+            <img
+              src="../images/week-4-response.jpg"
+              alt="Describe your own two-page sketchbook spread."
+            >
+          </a>
+
+          <figcaption>
+            <strong>Nathanael Heath, Sketchbook study</strong>
+            <span>[Materials], 2026</span>
+          </figcaption>
+        </figure>
+
+        -->
+
+        <div class="reflection">
+          <h3>On the process</h3>
+          <p>
+            It was quite fun to replicate this spread. I used crayons instead of watercolor due to the paper's incompatibility with wet mediums. The feel of the composition still came through quite well, and it was very interesting to mimic someone else's creation.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="return-bar bottom" aria-label="Return to assignments">
+      <a href="../index.html#assignments">← Back to assignments</a>
+    </nav>
+
+  </div>
+
+  <dialog class="image-viewer" aria-label="Enlarged artwork">
+    <button class="viewer-close" type="button" aria-label="Close image">
+      ×
+    </button>
+    <img alt="">
+  </dialog>
+
+ <script>
+  const viewer = document.querySelector(".image-viewer");
+  const viewerImage = viewer.querySelector("img");
+
+  document.querySelectorAll(".artwork-link").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+
+      const photo = link.querySelector("img");
+      viewerImage.src = photo.currentSrc || photo.src;
+      viewerImage.alt = photo.alt;
+
+      viewer.showModal();
+    });
+  });
+
+  viewer.querySelector(".viewer-close").addEventListener("click", () => {
+    viewer.close();
+  });
+
+  viewer.addEventListener("click", event => {
+    if (event.target === viewer) viewer.close();
+  });
+</script>
+</body>
+</html>
