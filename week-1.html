@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 1: Living Artist | Nathanael Heath</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #172832;
+      color: #dfeaf0;
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .page {
+      width: min(100% - 40px, 1000px);
+      margin: auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(223, 234, 240, .4);
+    }
+
+    a { color: inherit; }
+
+    .back-link {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    main { padding: 90px 0 120px; }
+
+    .eyebrow {
+      color: #bdc0d8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 20px 0 55px;
+      font-family: "Russo One", Arial, sans-serif;
+      font-size: clamp(48px, 9vw, 110px);
+      font-weight: 400;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .content {
+      max-width: 720px;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .content p { margin: 0 0 24px; }
+
+    figure { margin: 60px 0; }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: #bdc0d8;
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(223, 234, 240, .4);
+      padding: 25px 0 50px;
+    }
+
+.art-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 60px 0;
+  align-items: start;
+}
+
+.art-gallery figure {
+  margin: 0;
+}
+
+.art-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.art-gallery figcaption {
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .art-gallery {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin-inline: auto;
+  }
+}
+
+.content .artist-name {
+  font-family: "Russo One", Arial, sans-serif;
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+figure a {
+  display: block;
+  cursor: zoom-in;
+}
+
+figure a img {
+  transition: transform .2s ease;
+}
+
+figure a:hover img {
+  transform: scale(1.02);
+}
+
+.artwork-link img {
+  transition: opacity .25s ease;
+  cursor: zoom-in;
+}
+
+.artwork-link:hover img {
+  opacity: .65;
+}
+
+.image-viewer {
+  max-width: 95vw;
+  max-height: 95vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.image-viewer::backdrop {
+  background: rgba(0, 0, 0, .88);
+}
+
+.image-viewer img {
+  display: block;
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <a class="back-link" href="../index.html#assignments">
+        ← Back to assignments
+      </a>
+    </header>
+
+    <main>
+      <div class="eyebrow">ARHA 295 / Week 1</div>
+      <h1>Living Artist</h1>
+
+      <div class="content">
+        <p class="artist-name">Milton Courts</p>
+        <p>Milton Courts (b.2004) is a multidisciplinary artist from Baltimore, who currently resides in Limón, Costa Rica. He started his painting practice in high school, soon after moving to Costa Rica where he now explores painting, stone sculpture, and carved wood. Similar to my art practice, Courts explores 
+ <a href="https://www.miltoncourts.com/about">
+    “memory, identity, and the stories embedded in people and materials.”
+  </a>
+</p>
+      </div>
+
+      <div class="art-gallery">
+  <figure>
+<a href="/Users/nathanaelheath/Desktop/images/courts-1.png" class="artwork-link">
+    <img src="/Users/nathanaelheath/Desktop/images/courts-1.png" alt="Description of the first artwork">
+</a>
+    <figcaption>
+      <strong>'Senam'</strong><br>
+      18x24in, Acrylic on Cotton<br>
+      2026
+    </figcaption>
+  </figure>
+
+  <figure>
+<a href="/Users/nathanaelheath/Desktop/images/courts-2.png" class="artwork-link">
+    <img src="/Users/nathanaelheath/Desktop/images/courts-2.png" alt="Description of the second artwork">
+</a>
+    <figcaption>
+      <strong>'Lovers Fued'</strong><br>
+      51cm x 41cm<br>
+      2026
+    </figcaption>
+  </figure>
+
+  <figure>
+<a href="/Users/nathanaelheath/Desktop/images/courts-3.png" class="artwork-link">
+    <img src="/Users/nathanaelheath/Desktop/images/courts-3.png" alt="Description of the third artwork">
+</a>
+    <figcaption>
+      <strong>'Consequences of War'</strong><br>
+      85cm x 122cm<br>
+      2025
+    </figcaption>
+  </figure>
+</div>
+
+    <footer>
+      <a class="back-link" href="../index.html#assignments">
+        ← Back to assignments
+      </a>
+    </footer>
+  </div>
+
+<dialog class="image-viewer" aria-label="Enlarged artwork">
+  <img src="" alt="">
+</dialog>
+
+<script>
+  const viewer = document.querySelector(".image-viewer");
+  const viewerImage = viewer.querySelector("img");
+
+  document.querySelectorAll(".artwork-link").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      viewerImage.src = link.href;
+      viewerImage.alt = link.querySelector("img").alt;
+      viewer.showModal();
+    });
+  });
+
+  viewer.addEventListener("click", event => {
+    if (event.target === viewer) viewer.close();
+  });
+</script>
+
+</body>
+</html>

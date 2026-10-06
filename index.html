@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nathanael Heath | ARHA 295</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Bungee&family=Russo+One&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper: #1D232A;
+      --paper-2: #1a2d39;
+      --ink: #dfeaf0;
+      --muted: #bdd0d8;
+      --line: rgba(223, 234, 240, 0.42);
+      --purple: #AC99C2;
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+.drawing-bg {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  width: min(90vw, 1300px);
+  max-height: 80vh;
+  object-fit: contain;
+  transform: translateX(-50%);
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 16s ease-in-out infinite;
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+}
+
+    @keyframes drift {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(-1deg);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-18px) rotate(1deg);
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 64px, 1600px);
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 84px;
+      padding-top: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "DM Sans", Arial, sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--purple);
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(172, 153, 194, 0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: clamp(16px, 2vw, 52px);
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav a {
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+.hero {
+  padding-top: 72px;
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+    .name-wrap {
+      width: 100%;
+      position: relative;
+    }
+
+.name {
+  margin: 0 auto;
+  font-family: "Bungee", Arial, sans-serif;
+  letter-spacing: 0.02em;
+  line-height: 0.8;
+  text-transform: uppercase;
+  color: rgba(233, 239, 242, 0.9);
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  display: block;
+  width: 100%;
+}
+
+.name .line {
+  display: block;
+  font-size: clamp(64px, 10vw, 175px);
+  line-height: 0.8;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-align: center;
+  margin-left: 0;
+}
+
+.name .line.second {
+  margin-left: 0;
+  margin-top: 20px;
+  letter-spacing: 0.04em;
+}
+
+
+.intro {
+  max-width: 980px;
+  padding-top: 40px;
+  padding-bottom: 56px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro p {
+  margin: 0 auto;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 2.5vw, 42px);
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: rgba(223, 234, 240, 0.96);
+  text-align: center;
+}
+    .section {
+      padding-top: 44px;
+      padding-bottom: 36px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-family: "Russo One", Arial, sans-serif;
+      font-size: clamp(38px, 6vw, 92px);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 0.9;
+      font-weight: 400;
+    }
+
+    .section p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(223, 234, 240, 0.85);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+.work-card {
+  min-height: 320px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  text-decoration: none;
+
+  background-color: #34404a;
+  background-image:
+    linear-gradient(to top, rgba(10, 18, 25, .88), rgba(10, 18, 25, .08)),
+    var(--art);
+  background-size: cover;
+  background-position: center;
+
+  transition: transform .2s ease;
+}
+
+.work-card:hover,
+.work-card:focus-visible {
+  transform: translateY(-5px);
+}
+
+.work-card .card-body p {
+  color: #fff;
+}
+
+.work-card:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+
+    footer {
+      padding-top: 54px;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 14px 0;
+  margin: 140px 0 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Russo One", Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.ticker-track {
+  display: inline-block;
+  animation: tickerMove 40s linear infinite;
+}
+
+.ticker i {
+  color: var(--purple);
+  font-style: normal;
+  margin: 0 28px;
+}
+
+@keyframes tickerMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}
+    @media (max-width: 850px) {
+      .page {
+        width: min(100% - 28px, 1600px);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 18px;
+        padding-top: 18px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 14px 18px;
+      }
+
+      .meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+    .name .line {
+  font-size: clamp(52px, 13vw, 110px);
+  white-space: normal;
+}
+
+.name .line.second {
+  margin-left: 4vw;
+  margin-top: 18px;
+}
+      .intro {
+        padding-top: 28px;
+        padding-bottom: 34px;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+    .drawing-bg {
+  top: 150px;
+  width: 105vw;
+  max-height: 55vh;
+  opacity: 0.1;
+}
+    }
+
+.art-a {
+  color: transparent;
+  background-image: url("images/my-drawing.png");
+  background-size: cover;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.contact-methods h3 {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-methods a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-name {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-name:hover {
+  color: var(--purple);
+}
+
+.footer-name:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+}
+
+.footer-course {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-course:hover {
+  color: var(--purple);
+}
+
+.footer-course:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+}
+
+.course-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.course-link:hover {
+  color: var(--purple);
+}
+
+.course-link:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+}
+
+.art-manifesto {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--ink);
+}
+
+.manifesto-content {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  text-align: center;
+  transform: translateY(calc(var(--scroll-shift, 0px) - 30px));
+  will-change: transform;
+}
+
+.art-manifesto h2,
+.manifesto-lines p {
+  font-family: "Bungee", Arial, sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+.art-manifesto h2 {
+  font-size: clamp(48px, 7vw, 105px);
+}
+
+.manifesto-lines p {
+  font-size: clamp(26px, 3.5vw, 54px);
+  line-height: 1.25;
+  letter-spacing: -.035em;
+  animation: manifesto-float 5s ease-in-out infinite;
+}
+
+.manifesto-lines p:nth-child(2) {
+  animation-delay: -1.5s;
+  transform: rotate(-2deg);
+}
+
+.manifesto-lines p:nth-child(3) {
+  animation-delay: -3s;
+}
+
+@keyframes manifesto-float {
+  50% { translate: 0 -12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manifesto-lines p {
+    animation: none;
+  }
+
+  .manifesto-content {
+    transform: none;
+  }
+}
+
+.art-manifesto h2 {
+  background-image: url("images/manifesto-lettering.png");
+  background-size: cover;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-about {
+  width: min(900px, 100%);
+  margin: 38px auto 55px;
+  text-align: center;
+}
+
+.hero-about-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows .45s ease, opacity .3s ease;
+}
+
+.hero-about-panel-inner {
+  overflow: hidden;
+}
+
+.hero-about-panel p {
+  margin: 0 auto 22px;
+  padding: 22px 28px;
+  border: 1px solid rgba(223, 234, 240, .35);
+  border-radius: 12px;
+  background: rgba(23, 40, 50, .92);
+  color: #dfeaf0;
+  font-family: Georgia, serif;
+  font-size: clamp(18px, 2vw, 30px);
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.hero-about-button {
+  width: 180px;
+  min-height: 95px;
+  border: 2px solid white;
+  border-radius: 48% 52% 46% 54% / 56% 42% 58% 44%;
+  background: url("images/about-button.jpg") center / cover;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .9);
+  font: 700 17px Arial, sans-serif;
+  letter-spacing: .12em;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  transition: transform .3s ease, border-radius .3s ease;
+}
+
+.hero-about-button:hover {
+  transform: translateY(-5px) rotate(-2deg);
+  border-radius: 54% 46% 53% 47% / 45% 55% 45% 55%;
+}
+.hero-about-button span {
+  display: inline-block;
+  margin-left: 10px;
+  transition: transform .3s ease;
+}
+
+.hero-about:not(.open) .hero-about-button span {
+  transform: rotate(180deg);
+}
+
+.hero-about.open .hero-about-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #1d242b; /* Match your page background */
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 750px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <img
+    class="drawing-bg"
+    src="images/background-drawing.png"
+    alt=""
+    aria-hidden="true"
+  />
+
+  <div class="page">
+    <header class="site-header">
+      <div class="brand">
+        <span>NH</span>
+        <span class="brand-dot"></span>
+      </div>
+
+  <nav class="top-nav" aria-label="Main navigation">
+  <a href="#about">About</a>
+  <a href="#assignments">Assignments</a>
+  <a href="#work">Works</a>
+  <a href="#statement">Statement</a>
+  <a href="#contact">Contact</a>
+</nav>
+    </header>
+
+    <div class="meta-row" id="course">
+      <a class="course-link"
+   href="https://www.amherst.edu/academiclife/departments/courses/2627F/ARHA/ARHA-295-2627F"
+   target="_blank"
+   rel="noopener noreferrer">
+  ARHA 295 / Intermediate Oil Painting
+</a>
+      <span>Fall 2026</span>
+    </div>
+
+    <section class="hero" id="about">
+
+    <h1 class="name">
+  <span class="line">NATH<span class="art-a">A</span>NAEL</span>
+  <span class="line second">HE<span class="art-a">A</span>TH</span>
+</h1>
+
+
+    </section>
+
+   <div class="hero-about">
+  <div class="hero-about-panel" id="hero-about-description">
+    <div class="hero-about-panel-inner">
+      <p>I am a current international student at Amherst College, majoring in Economics and Sociology. As a senior, my academic life has largely culminated in the social sciences, though I have been quite creative since I was a child. I would draw characters I watched on TV, and have always had a keen eye for design and aesthetics. It would be until my junior year in college, however, that I would take a formal studio course. Since then, I have endeavored to incorporate art practice into my schedule each semester.</p>
+    </div>
+  </div>
+
+  <button class="hero-about-button" type="button"
+          aria-expanded="false" aria-controls="hero-about-description">
+    ABOUT <span aria-hidden="true">▴</span>
+  </button>
+</div>
+<div class="ticker" aria-label="Portfolio subjects">
+  <div class="ticker-track">
+    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
+    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
+    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
+    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
+  </div>
+</div>
+
+<section class="art-manifesto" aria-labelledby="manifesto-title">
+  <div class="manifesto-art manifesto-art-left" aria-hidden="true"></div>
+
+  <div class="manifesto-content">
+    <h2 id="manifesto-title">I am for an art...</h2>
+
+    <div class="manifesto-lines">
+      <p>I am for an art that is malleable.</p>
+      <p>I am for an art that challenges the eye.</p>
+      <p>I am for an art that lasts.</p>
+    </div>
+
+    <a class="manifesto-source"
+       href="https://www.moma.org/magazine/articles/757"
+       target="_blank"
+       rel="noopener noreferrer">
+      After Claes Oldenburg ↗
+    </a>
+  </div>
+
+  <div class="manifesto-art manifesto-art-right" aria-hidden="true"></div>
+</section>
+
+<section class="section" id="assignments">
+  <div class="section-label">
+    <span>Weekly assignments</span>
+    <span>ARHA 295</span>
+  </div>
+
+  <h2>Assignments</h2>
+
+ <div class="works-grid">
+  <a class="work-card"
+   href="assignments/week-1.html"
+     style="--art: url('images/week-1.jpg')">
+    <div class="card-body">
+      <div class="meta">
+        <span>Week 1</span>
+        <span>Favorite living artist</span>
+      </div>
+      <h3>Living artist</h3>
+      <p>Find one living artist you love and explain why their work matters to you.</p>
+    </div>
+  </a>
+
+
+    <a class="work-card"
+   href="assignments/week-2.html"
+     style="--art: url('images/week-2.jpg')">
+      <div class="card-body">
+        <div class="meta">
+          <span>Week 2</span>
+          <span>Library + sketches</span>
+        </div>
+        <h3>Artist research</h3>
+        <p>Library artist, tombstone information, one finished work and its sketches, plus a short paragraph on the pair.</p>
+      </div>
+    </a>
+
+    <a class="work-card"
+   href="assignments/week-3.html"
+     style="--art: url('images/week-3.jpg')">
+      <div class="card-body">
+        <div class="meta">
+          <span>Week 3</span>
+          <span>Vitamin P + Cornell</span>
+        </div>
+        <h3>Shadowbox study</h3>
+        <p>Artist research, found-object reflection, and an analysis of the function of your box.</p>
+      </div>
+    </a>
+
+    <a class="work-card"
+   href="assignments/week-4.html"
+     style="--art: url('images/week-4.jpg')">
+      <div class="card-body">
+        <div class="meta">
+          <span>Week 4</span>
+          <span>Sketchbook</span>
+        </div>
+        <h3>Two-page spread</h3>
+        <p>Find a Pinterest sketchbook spread and either copy or mimic it with your own color and marks.</p>
+      </div>
+     </a>
+
+<a class="work-card"
+   href="assignments/week-5.html"
+   style="--art: url('images/week-5.jpg')">
+
+  <div class="card-body">
+    <div class="meta">
+      <span>Week 5</span>
+      <span>Color + storytelling</span>
+    </div>
+
+    <h3>Color studies</h3>
+    <p>Two artists exploring color schemes and the role of color in telling a story.</p>
+  </div>
+</a>
+
+</section>
+
+
+    <section class="section" id="work">
+      <div class="section-label">
+        <span>Selected work</span>
+        <span>2026</span>
+      </div>
+
+      <h2>Works</h2>
+
+      <div class="works-grid">
+  <a class="work-card"
+     href="works/oil-painting.html"
+     style="--art: url('images/oil-painting.jpg')">
+    <div class="card-body">
+      <div class="meta">
+        <span>Selected work</span>
+        <span>2026</span>
+      </div>
+      <h3>Oil Painting</h3>
+      <p>Paintings and studies in color, observation, and memory.</p>
+    </div>
+  </a>
+
+  <a class="work-card"
+     href="works/other-mediums.html"
+     style="--art: url('images/other-mediums.jpg')">
+    <div class="card-body">
+      <div class="meta">
+        <span>Selected work</span>
+        <span>2026</span>
+      </div>
+      <h3>Other Mediums</h3>
+      <p>Charcoal drawings, Watercolor, Collage</p>
+    </div>
+  </a>
+
+  <a class="work-card"
+     href="works/object-study.html"
+     style="--art: url('images/object-study.jpg')">
+    <div class="card-body">
+      <div class="meta">
+        <span>Selected work</span>
+        <span>2026</span>
+      </div>
+      <h3>Artist Study</h3>
+      <p>Research and visual responses to artists who inform my practice</p>
+    </div>
+  </a>
+</div>
+
+    </section>
+
+    <section class="section" id="statement">
+      <div class="section-label">
+        <span>Statement</span>
+      </div>
+
+      <h2>Statement</h2>
+      <p>
+        This portfolio gathers paintings, material studies, and small observations made while learning
+        how to look more closely and work more deliberately. The aim is to treat each object as a
+        record of attention, memory, and inquiry.
+      </p>
+    </section>
+
+<section class="section" id="contact">
+  <div class="section-label">
+    <span>Contact</span>
+  </div>
+
+  <h2>Contact</h2>
+
+  <div class="contact-methods">
+    <div>
+      <h3>Personal</h3>
+      <a href="mailto:nathanaelheath9@gmail.com">
+        nathanaelheath9@gmail.com
+      </a>
+    </div>
+
+    <div>
+      <h3>School</h3>
+      <a href="mailto:nheath27@amherst.edu">
+        nheath27@amherst.edu
+      </a>
+    </div>
+
+    <div>
+      <h3>Phone</h3>
+      <a href="tel:+19102574715">
+        910-257-4715
+      </a>
+    </div>
+  </div>
+</section>
+
+   <footer>
+  <a class="footer-name"
+     href="https://open.spotify.com/user/thatboinathan?si=da609d7f2a9c4809"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Nathanael Heath on Spotify">
+    Nathanael Heath
+
+<a class="footer-course"
+   href="https://www.amherst.edu/academiclife/departments/courses/2627F/ARHA/ARHA-295-2627F"
+   target="_blank"
+   rel="noopener noreferrer">
+  ARHA 295
+</a>
+</footer>
+  </div>
+
+<script>
+  document.querySelector(".hero-about-button").addEventListener("click", function () {
+    const about = document.querySelector(".hero-about");
+    const open = about.classList.toggle("open");
+    this.setAttribute("aria-expanded", String(open));
+  });
+</script>
+
+</body>
+</html>

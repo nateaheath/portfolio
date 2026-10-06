@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 3: Vitamin P + Joseph Cornell | Nathanael Heath</title>
+
+  <style>
+    :root {
+      --bg: #172832;
+      --ink: #dfeaf0;
+      --muted: #afbec7;
+      --line: rgba(223, 234, 240, .28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    a:hover { color: white; }
+
+    .page {
+      width: min(1320px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      padding: 36px 0 50px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow,
+    .day-label {
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 10vw, 8.5rem);
+      margin: 24px 0 0;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      margin: 14px 0 28px;
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      margin: 0 0 12px;
+    }
+
+    .assignment {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro {
+      max-width: 850px;
+      margin: 0 0 42px;
+      font-size: 1.12rem;
+    }
+
+    .source {
+      margin: -15px 0 38px;
+      color: var(--muted);
+      font-size: .95rem;
+      font-style: italic;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    figure {
+      min-width: 0;
+      margin: 0;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    figcaption {
+      padding: 14px 6px 0;
+      text-align: center;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    figcaption strong,
+    figcaption span {
+      display: block;
+    }
+
+    figcaption span {
+      color: var(--muted);
+    }
+
+    .cornell-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .cornell-layout figure img {
+      height: auto;
+      max-height: 760px;
+      object-fit: contain;
+    }
+
+    .writing {
+      max-width: 650px;
+    }
+
+    .writing p {
+      margin: 0;
+      font-size: 1.12rem;
+    }
+
+    footer {
+      padding: 32px 0 70px;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 850px) {
+      .gallery,
+      .cornell-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery figure img {
+        height: auto;
+        max-height: 520px;
+      }
+
+      .assignment {
+        padding: 60px 0;
+      }
+    }
+
+.assignment-return {
+  padding: 24px 0;
+}
+
+.assignment-return.top {
+  border-bottom: 1px solid rgba(223, 234, 240, .28);
+}
+
+.assignment-return.bottom {
+  border-top: 1px solid rgba(223, 234, 240, .28);
+}
+
+.assignment-return a {
+  color: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.assignment-return a:hover {
+  text-decoration: none;
+}
+
+footer a,
+footer a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.top-return {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(223, 234, 240, .28);
+}
+
+.top-return a,
+.top-return a:hover {
+  color: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+figure a {
+  display: block;
+  cursor: zoom-in;
+}
+
+figure a img {
+  transition: transform .2s ease;
+}
+
+figure a:hover img {
+  transform: scale(1.02);
+}
+
+.artwork-link img {
+  transition: opacity .25s ease;
+  cursor: zoom-in;
+}
+
+.artwork-link:hover img {
+  opacity: .65;
+}
+
+.image-viewer {
+  max-width: 95vw;
+  max-height: 95vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.image-viewer::backdrop {
+  background: rgba(0, 0, 0, .88);
+}
+
+.image-viewer img {
+  display: block;
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+}
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+<nav class="top-return">
+  <a href="../index.html#assignments">← Back to assignments</a>
+</nav>
+
+    <header>
+      <div class="eyebrow">ARHA 295 / Week 3</div>
+      <h1>Vitamin P<br>+ Cornell</h1>
+    </header>
+
+    <main>
+      <!-- MONDAY: ONE ARTIST, THREE IMAGES -->
+      <section class="assignment" aria-labelledby="monday-title">
+        <div class="day-label">Monday / Artist of the day</div>
+        <h2 id="monday-title">Vitamin P</h2>
+
+        <h3>Jitash Kallat</h3>
+
+        <p class="intro">
+          Jitash Kallat (b.1974) is a contemporary artist from Mumbai, India. His work spans painting, photography, collages, sculpture, installations, and multimedia forms of expression. He received his MFA in painting at the Sir JJ School of Art in Mumbai.
+        </p>
+
+        <p class="source">
+  Artist found in <cite>Vitamin P2: New Perspectives in Painting</cite>,
+  pp. 156–159, available on course reserve.
+</p>
+
+        <div class="gallery" aria-label="Three paintings by the Monday artist">
+          <figure>
+<a href="/Users/nathanaelheath/Desktop/images/kallat-1.png" class="artwork-link">
+            <img
+              src="/Users/nathanaelheath/Desktop/images/kallat-1.png"
+              alt="[Describe the first painting]"
+            >
+</a>
+            <figcaption>
+              <strong>Ephemeris (The Almanac of a Dancing Shadow)</strong>
+              <span>Acylic, oil, varnish and pencil on canvas, 2012-3</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+<a href="/Users/nathanaelheath/Desktop/images/kallat-2.png" class="artwork-link">
+            <img
+              src="/Users/nathanaelheath/Desktop/images/kallat-2.png"
+              alt="[Describe the second painting]"
+            >
+</a>
+            <figcaption>
+              <strong>Wind Study (Hilbert Curve)</strong>
+              <span>Burnt adhesive, aquarelle pencil and graphite on paper, 2016</span>
+            </figcaption>
+          </figure>
+
+          <figure>
+<a href="/Users/nathanaelheath/Desktop/images/killat-3.Jpg" class="artwork-link">
+            <img
+              src="/Users/nathanaelheath/Desktop/images/killat-3.Jpg"
+              alt="[Describe the third painting]"
+            >
+</a>
+            <figcaption>
+              <strong>Untitled (The Unbearable Lightness of Being)</strong>
+              <span>Acrylic on canvas; bronze support, 2011</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- WEDNESDAY: ONE CORNELL SHADOWBOX + ONE PARAGRAPH -->
+      <section class="assignment" aria-labelledby="wednesday-title">
+        <div class="day-label">Wednesday / Artist of the day</div>
+        <h2 id="wednesday-title">Joseph Cornell</h2>
+
+        <div class="cornell-layout">
+          <figure>
+<a href="/Users/nathanaelheath/Desktop/images/cornell-1.jpg" class="artwork-link">
+            <img
+              src="/Users/nathanaelheath/Desktop/images/cornell-1.jpg"
+              alt="[Describe the objects and their arrangement in the shadowbox]"
+            >
+</a>
+            <figcaption>
+              <strong>Joseph Cornell, <em>Tilly Losch</em></strong>
+              <span>Shadow Box, ca.1935</span>
+            </figcaption>
+          </figure>
+
+          <div class="writing">
+            <h3>Inside the box</h3>
+
+            <p>
+              In Joseph Cornell’s "Tilly Losch," a small figure in a blue dress hangs by thin strings above a black-and-white mountain range. A red bead rests against her skirt, and the empty blue space around her makes her seem both weightless and strangely confined. I interpret the box as a scene about nostalgia. The figure seems to be both youthful and ladylike in her blue dress, obscuring the lines between adolescence and womanhood. Moreover, the strings hold her in place as she appears to freely float over the mountains, perhaps a scene of familiarness yet current estrangement. When I think about my this work in relation to my shadow box, I may want to consider distance and memory as well, particularly as a migrant who frequently moves from place to place in a land that is not my home. I also appreciate the photographic style of this box, along with its minimal nature. 
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="../index.html#assignments">← Back to assignments</a>
+    </footer>
+  </div>
+
+<dialog class="image-viewer" aria-label="Enlarged artwork">
+  <img src="" alt="">
+</dialog>
+
+<script>
+  const viewer = document.querySelector(".image-viewer");
+  const viewerImage = viewer.querySelector("img");
+
+  document.querySelectorAll(".artwork-link").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      viewerImage.src = link.href;
+      viewerImage.alt = link.querySelector("img").alt;
+      viewer.showModal();
+    });
+  });
+
+  viewer.addEventListener("click", event => {
+    if (event.target === viewer) viewer.close();
+  });
+</script>
+
+</body>
+</html>
