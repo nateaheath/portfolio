@@ -614,7 +614,34 @@
   position: relative;
   z-index: 2;
 }
-  
+
+@media (max-width: 850px) {
+  /* Fit your name within the page */
+  .name .line {
+    font-size: clamp(28px, 10vw, 85px);
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .name .line.second {
+    margin-left: 0;
+  }
+
+  /* Keep the manifesto below its label */
+  .manifesto-content {
+    transform: none;
+  }
+
+  .art-manifesto {
+    padding-top: 30px;
+  }
+
+  .art-manifesto h2 {
+    margin-top: 0;
+    font-size: clamp(30px, 7vw, 58px);
+    overflow-wrap: anywhere;
+  }
+}
   </style>
 </head>
 
