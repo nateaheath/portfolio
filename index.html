@@ -304,20 +304,7 @@
   z-index: 2;
 }
 
-.ticker-track {
-  display: inline-block;
-  animation: tickerMove 40s linear infinite;
-}
 
-.ticker i {
-  color: var(--purple);
-  font-style: normal;
-  margin: 0 28px;
-}
-
-@keyframes tickerMove {
-  0% {
-    transform: translateX(0);
   }
 
   100% {
@@ -609,6 +596,11 @@
   }
 }
 
+    .section-divider {
+  border-top: 1px solid var(--line);
+  margin: 60px 0;
+}
+    
   </style>
 </head>
 
@@ -668,13 +660,9 @@
     ABOUT <span aria-hidden="true">▴</span>
   </button>
 </div>
-<div class="ticker" aria-label="Portfolio subjects">
-  <div class="ticker-track">
-    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
-    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
-    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
-    Writing <i>✳</i> Research <i>✳</i> Art <i>✳</i> Culture <i>✳</i>
-  </div>
+    
+<div class="section-divider" aria-hidden="true"></div>
+    
 </div>
 
 <section class="art-manifesto" aria-labelledby="manifesto-title">
