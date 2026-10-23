@@ -682,6 +682,38 @@
     pointer-events: none;
   }
 }
+
+@media (max-width: 850px) {
+  /* Reduce space between About and the manifesto divider */
+  .hero-about {
+    margin-bottom: 0;
+  }
+
+  .section-divider {
+    margin: 45px 0 0;
+  }
+
+  /* Remove the replacement background inside the hero */
+  .hero-area::before {
+    content: none;
+  }
+
+  /* Restore the fixed, animated drawing */
+  .drawing-bg {
+    display: block;
+    position: fixed;
+    top: 24%;
+    left: 50%;
+    width: 95vw;
+    max-height: 65vh;
+    object-fit: contain;
+    opacity: .14;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift 16s ease-in-out infinite;
+  }
+}
+    
   </style>
 </head>
 
