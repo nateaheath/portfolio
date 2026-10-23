@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 6: World Construction | Nathanael Heath</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #0A0D0F;
+      color: #dfeaf0;
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .page {
+      width: min(100% - 40px, 1000px);
+      margin: auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(223, 234, 240, .4);
+    }
+
+    a { color: inherit; }
+
+    .back-link {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    main { padding: 90px 0 100px; }
+
+    .eyebrow {
+      color: #bdc0d8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 20px 0 65px;
+      font-family: "Russo One", Arial, sans-serif;
+      font-size: clamp(44px, 9vw, 100px);
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .artist + .artist {
+      margin-top: 75px;
+      padding-top: 55px;
+      border-top: 1px solid rgba(223, 234, 240, .4);
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-family: "Russo One", Arial, sans-serif;
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .description {
+      max-width: 760px;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .art-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 35px;
+      align-items: start;
+    }
+
+    figure { margin: 0; }
+
+    .artwork-link {
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .artwork-link img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: opacity .25s ease;
+    }
+
+    .artwork-link:hover img { opacity: .65; }
+
+    figcaption {
+      margin-top: 14px;
+      color: #bdc0d8;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .source {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #bdc0d8;
+    }
+
+    footer {
+      border-top: 1px solid rgba(223, 234, 240, .4);
+      padding: 25px 0 50px;
+    }
+
+    .image-viewer {
+      max-width: 95vw;
+      max-height: 95vh;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .image-viewer::backdrop {
+      background: rgba(0, 0, 0, .88);
+    }
+
+    .image-viewer img {
+      display: block;
+      max-width: 95vw;
+      max-height: 95vh;
+      object-fit: contain;
+    }
+
+    @media (max-width: 700px) {
+      .art-gallery {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-inline: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <a class="back-link" href="../index.html#assignments">
+        ← Back to assignments
+      </a>
+    </header>
+
+    <main>
+      <div class="eyebrow">ARHA 295 / Week 6</div>
+      <h1>World Construction</h1>
+
+      <!-- ARTIST ONE -->
+      <section class="artist" aria-labelledby="artist-one">
+        <h2 id="artist-one">[First artist’s name]</h2>
+
+        <p class="description">
+          [In three sentences or fewer, explain why you chose this artist.
+          Consider how they use perspective, color, architecture, layering,
+          or imagination to construct a world, and what this suggests
+          for your final project.]
+        </p>
+
+        <div class="art-gallery">
+          <figure>
+            <a href="../images/week-6-artist-1-a.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-1-a.jpg"
+                   alt="[Describe the first artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="../images/week-6-artist-1-b.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-1-b.jpg"
+                   alt="[Describe the second artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="../images/week-6-artist-1-c.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-1-c.jpg"
+                   alt="[Describe the third artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="source">
+          Sources: [Add artist, museum, or gallery links here.]
+        </p>
+      </section>
+
+      <!-- ARTIST TWO -->
+      <section class="artist" aria-labelledby="artist-two">
+        <h2 id="artist-two">[Second artist’s name]</h2>
+
+        <p class="description">
+          [In three sentences or fewer, explain why you chose this artist
+          and how their construction of space or an imagined world
+          could inform your final project.]
+        </p>
+
+        <div class="art-gallery">
+          <figure>
+            <a href="../images/week-6-artist-2-a.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-2-a.jpg"
+                   alt="[Describe the first artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="../images/week-6-artist-2-b.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-2-b.jpg"
+                   alt="[Describe the second artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="../images/week-6-artist-2-c.jpg" class="artwork-link">
+              <img src="../images/week-6-artist-2-c.jpg"
+                   alt="[Describe the third artwork]">
+            </a>
+            <figcaption>
+              <strong>[Artwork title]</strong><br>
+              [Year, medium, dimensions]
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="source">
+          Sources: [Add artist, museum, or gallery links here.]
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <a class="back-link" href="../index.html#assignments">
+        ← Back to assignments
+      </a>
+    </footer>
+  </div>
+
+  <dialog class="image-viewer" aria-label="Enlarged artwork">
+    <img alt="">
+  </dialog>
+
+  <script>
+    const viewer = document.querySelector(".image-viewer");
+    const viewerImage = viewer.querySelector("img");
+
+    document.querySelectorAll(".artwork-link").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        viewerImage.src = link.href;
+        viewerImage.alt = link.querySelector("img").alt;
+        viewer.showModal();
+      });
+    });
+
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) viewer.close();
+    });
+  </script>
+</body>
+</html>
