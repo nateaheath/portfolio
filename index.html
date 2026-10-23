@@ -660,7 +660,28 @@
     padding-bottom: 45px;
   }
 }
-  
+
+    @media (max-width: 850px) {
+  /* Replace the fixed drawing with one behind the hero */
+  .drawing-bg {
+    display: none;
+  }
+
+  .hero-area {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-area::before {
+    content: "";
+    position: absolute;
+    inset: 0 -10px;
+    background: url("images/background-drawing.png") center / contain no-repeat;
+    opacity: .14;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
   </style>
 </head>
 
