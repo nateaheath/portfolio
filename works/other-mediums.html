@@ -1,1 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Other Mediums | Nathanael Heath</title>
+  
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0A0D0F;
+      --text: #dfeaf0;
+      --muted: #a4afb5;
+      --line: rgba(223, 234, 240, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 6px;
+    }
+
+    .page {
+      width: min(1400px, 90%);
+      margin-inline: auto;
+    }
+
+    .page-header,
+    .page-footer {
+      padding-block: 28px;
+    }
+
+    .page-header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--line);
+    }
+
+    .back-link {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: opacity 200ms ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.65;
+    }
+
+    .intro {
+      padding-block: 90px 70px;
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 110px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .intro-description {
+      max-width: 480px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Artworks sit directly against the page background. */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 32px;
+      row-gap: 140px;
+      padding-block: 30px 80px;
+      align-items: start;
+    }
+
+    .artwork {
+      grid-column: 2 / 9;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .artwork:nth-child(3n + 2) {
+      grid-column: 7 / 13;
+    }
+
+    .artwork:nth-child(3n) {
+      grid-column: 2 / 10;
+    }
+
+    .artwork-link {
+      display: block;
+      text-decoration: none;
+      cursor: zoom-in;
+    }
+
+    .artwork img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: filter 300ms ease;
+    }
+
+    .artwork-link:hover img {
+      filter: brightness(1.06);
+    }
+
+    figcaption {
+      margin-top: 20px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .artwork-title {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .artwork-details {
+      color: var(--muted);
+    }
+
+    /* Enabled by JavaScript so images remain visible if JS is off. */
+    .motion-enabled .artwork {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 900ms ease,
+        transform 1100ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .motion-enabled .artwork.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Full-screen image viewer */
+    .image-viewer {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      margin: 0;
+      padding: 24px;
+      border: 0;
+      background: rgba(10, 13, 15, 0.94);
+      color: var(--text);
+    }
+
+    .image-viewer[open] {
+      display: grid;
+      place-items: center;
+    }
+
+    .image-viewer::backdrop {
+      background: rgba(10, 13, 15, 0.8);
+    }
+
+    .viewer-content {
+      margin: 0;
+      max-width: 94vw;
+      text-align: center;
+    }
+
+    .viewer-content img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 82vh;
+      margin-inline: auto;
+      object-fit: contain;
+    }
+
+    .viewer-content figcaption {
+      max-width: 700px;
+      margin-inline: auto;
+      color: var(--muted);
+    }
+
+    .viewer-hint {
+      display: block;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 700px) {
+      .intro {
+        padding-block: 65px 45px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        row-gap: 75px;
+        padding-top: 15px;
+      }
+
+      .artwork,
+      .artwork:nth-child(3n + 2),
+      .artwork:nth-child(3n) {
+        grid-column: 1;
+      }
+
+      .page-footer {
+        margin-top: 25px;
+      }
+
+      .image-viewer {
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion-enabled .artwork,
+      .motion-enabled .artwork.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .artwork img,
+      .back-link {
+        transition: none;
+      }
+    }
+
+body {
+  background: #0A0D0F;
+}
+
+/* Matte, translucent sidebar */
+.portfolio-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 10;
+
+  width: 260px;
+  padding: 42px 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 45px;
+
+  background: rgba(22, 26, 28, 0.72);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+
+  border-right: 1px solid rgba(223, 234, 240, 0.1);
+}
+
+.sidebar-name {
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.portfolio-sidebar .eyebrow {
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.portfolio-sidebar h1 {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.sidebar-description {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.portfolio-sidebar .back-link {
+  font-size: 10px;
+}
+
+/* Move the gallery beside the sidebar */
+.page {
+  width: auto;
+  margin: 0 0 0 260px;
+  padding: 65px clamp(24px, 4vw, 75px);
+}
+
+.page-header {
+  display: none;
+}
+
+/* Three staggered columns, like your reference */
+.gallery {
+  display: block;
+  columns: 3;
+  column-gap: clamp(24px, 3vw, 55px);
+  padding: 0;
+}
+
+.artwork,
+.artwork:nth-child(3n + 2),
+.artwork:nth-child(3n) {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 65px;
+  break-inside: avoid;
+  vertical-align: top;
+}
+
+.artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.artwork figcaption {
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.artwork-title {
+  font-weight: 400;
+}
+
+.artwork-details {
+  font-size: 10px;
+}
+
+.page-footer {
+  margin-top: 30px;
+}
+
+/* Two columns on smaller laptops */
+@media (max-width: 1100px) {
+  .gallery {
+    columns: 2;
+  }
+}
+
+/* Sidebar becomes a compact introduction on mobile */
+@media (max-width: 700px) {
+  .portfolio-sidebar {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    padding: 28px 24px;
+    gap: 30px;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(223, 234, 240, 0.1);
+  }
+
+  .portfolio-sidebar h1 {
+    font-size: 44px;
+  }
+
+  .sidebar-description {
+    max-width: 320px;
+    margin-top: 16px;
+  }
+
+  .page {
+    margin: 0;
+    padding: 0 0 35px;
+  }
+
+  .gallery {
+    columns: 2;
+    column-gap: 18px;
+    padding: 30px 20px 0;
+  }
+
+  .artwork,
+  .artwork:nth-child(3n + 2),
+  .artwork:nth-child(3n) {
+    margin-bottom: 35px;
+  }
+
+  .page-footer {
+    margin-inline: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery {
+    columns: 1;
+  }
+}
+.sidebar-name {
+  font-family: "Allura", cursive;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+    
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="page-header">
+      <a class="back-link" href="../index.html#works">
+        ← Back to works
+      </a>
+    </header>
+
+    <main>
+ <aside class="portfolio-sidebar">
+  <a class="sidebar-name" href="../index.html">Nathanael Heath</a>
+
+  <div>
+    <p class="eyebrow">Selected works / 2026</p>
+    <h1 id="page-title">Oil<br>Painting</h1>
+
+    <p class="sidebar-description">
+      Mixed Mediums.
+    </p>
+  </div>
+
+  <a class="back-link" href="../index.html#works">
+    ← Back to works
+  </a>
+</aside>
+
+      <section class="gallery" aria-label="Oil painting gallery">
+
+        <!-- Work 1: replace filename, alt text, and caption. -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/painting-1.jpg">
+            <img
+              src="../images/othermediums-1.jpg"
+              alt="Describe your first work"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+        <!-- Work 2 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/othermediums-2.jpg">
+            <img
+              src="../images/painting-2.jpg"
+              alt="Describe your second work"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+        <!-- Work 3 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/othermediums-3.jpg">
+            <img
+              src="../images/othermediums-3.jpg"
+              alt="Describe your third work"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+          <!-- Work 4 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/other-mediums-4.jpg">
+            <img
+              src="../images/other-mediums-4.jpg"
+              alt="Describe your fourth painting"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+          <!-- Work 5 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/painting-5.jpg">
+            <img
+              src="../images/othermediums-5.jpg"
+              alt="Describe your fifth work"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of Work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+          <!-- Work 6 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/othermediums-6.jpg">
+            <img
+              src="../images/othermediums-6.jpg"
+              alt="Describe your sixth work"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+
+          <!-- Work 7 -->
+        <figure class="artwork">
+          <a class="artwork-link" href="../images/othermediums-7.jpg">
+            <img
+              src="../images/othermediums-7.jpg"
+              alt="Describe your seventh work"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+
+          <figcaption>
+            <span class="artwork-title">Title of work</span>
+            <span class="artwork-details">
+              Oil on canvas<br>
+              Width × height in inches, 2026
+            </span>
+          </figcaption>
+        </figure>
+        
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <a class="back-link" href="../index.html#works">
+        ← Back to works
+      </a>
+    </footer>
+
+  </div>
+
+  <!-- One image viewer for the whole page. -->
+  <dialog
+    class="image-viewer"
+    aria-label="Enlarged artwork"
+    aria-describedby="viewer-hint"
+  >
+    <button
+      class="visually-hidden"
+      id="close-viewer"
+      type="button"
+      autofocus
+    >
+      Close enlarged artwork
+    </button>
+
+    <figure class="viewer-content">
+      <img id="viewer-image" alt="">
+      <figcaption>
+        <span id="viewer-caption"></span>
+        <span class="viewer-hint" id="viewer-hint">
+          Click outside the artwork or press Escape to return.
+        </span>
+      </figcaption>
+    </figure>
+  </dialog>
+
+  <script>
+    // Gently reveal each artwork when it enters the screen.
+    const artworks = document.querySelectorAll(".artwork");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    if ("IntersectionObserver" in window && !reducedMotion.matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0,
+        rootMargin: "0px 0px -40px 0px"
+      });
+
+      document.documentElement.classList.add("motion-enabled");
+      artworks.forEach((artwork) => observer.observe(artwork));
+    }
+
+    // Open artworks in an overlay without leaving the page.
+    const viewer = document.querySelector(".image-viewer");
+    const viewerImage = document.getElementById("viewer-image");
+    const viewerCaption = document.getElementById("viewer-caption");
+    const closeButton = document.getElementById("close-viewer");
+
+    if (typeof viewer.showModal === "function") {
+      document.querySelectorAll(".artwork-link").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const artwork = link.closest(".artwork");
+          const image = link.querySelector("img");
+          const caption = artwork.querySelector("figcaption");
+
+          viewerImage.src = link.href;
+          viewerImage.alt = image.alt;
+          viewerCaption.textContent = caption.innerText;
+
+          viewer.showModal();
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      viewer.addEventListener("click", (event) => {
+        if (event.target === viewer) {
+          viewer.close();
+        }
+      });
+
+      closeButton.addEventListener("click", () => viewer.close());
+
+      viewer.addEventListener("close", () => {
+        document.body.style.overflow = "";
+        viewerImage.removeAttribute("src");
+      });
+    }
+  </script>
+</body>
+</html>
