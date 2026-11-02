@@ -811,7 +811,74 @@
     animation: none;
   }
 }
-    
+.assignment-browser {
+  position: relative;
+  padding-inline: 30px;
+}
+
+.assignment-controls {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.assignment-page-label {
+  display: none;
+}
+
+.assignment-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 64px;
+  border: 0;
+  background: transparent;
+
+  color: #C4BFD8;
+  font-family: Arial, sans-serif;
+  font-size: 58px;
+  font-weight: 300;
+  line-height: 1;
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#assignments-prev {
+  left: 0;
+}
+
+#assignments-next {
+  right: 0;
+}
+
+.assignment-arrow span {
+  display: block;
+  animation: chevron-float 3s ease-in-out infinite;
+}
+
+.assignment-arrow:disabled {
+  visibility: hidden;
+}
+
+@keyframes chevron-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assignment-arrow span {
+    animation: none;
+  }
+}    
   </style>
 </head>
 
@@ -1040,7 +1107,7 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
       aria-controls="assignment-pages"
       disabled
     >
-      <span aria-hidden="true">←</span>
+      <span aria-hidden="true">‹</span>
     </button>
 
     <span class="assignment-page-label" id="assignment-page-label"
@@ -1055,7 +1122,7 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
       aria-label="Next assignments"
       aria-controls="assignment-pages"
     >
-      <span aria-hidden="true">→</span>
+      <span aria-hidden="true">›</span>
     </button>
   </div>
 
