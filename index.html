@@ -717,6 +717,100 @@
 #works {
   scroll-margin-top: 110px;
 }
+    .assignment-browser {
+  min-width: 0;
+}
+
+.assignment-pages {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.assignment-pages::-webkit-scrollbar {
+  display: none;
+}
+
+.assignment-set {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(260px, auto));
+  gap: 24px;
+  padding: 8px 0 16px;
+  scroll-snap-align: start;
+}
+
+.assignment-set .work-card {
+  min-width: 0;
+  height: 100%;
+}
+
+.assignment-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  color: #C4BFD8;
+}
+
+.assignment-page-label {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.assignment-arrow {
+  width: 52px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #C4BFD8;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.assignment-arrow span {
+  display: inline-block;
+  animation: assignment-float 3s ease-in-out infinite;
+}
+
+.assignment-arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.assignment-arrow:disabled span {
+  animation: none;
+}
+
+@keyframes assignment-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 800px) {
+  .assignment-set {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(240px, auto);
+  }
+}
+
+@media (max-width: 480px) {
+  .assignment-set {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .assignment-arrow span {
+    animation: none;
+  }
+}
     
   </style>
 </head>
@@ -824,9 +918,9 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
 
   <div class="assignment-pages" id="assignment-pages">
 
-    <!-- FIRST SET: Weeks 1–6 -->
     <div class="assignment-set">
-      <div class="works-grid">
+          <!-- FIRST SET: Weeks 1–6 -->
+      
   <a class="work-card"
    href="assignments/week-1.html"
      style="--art: url('images/week-1.jpg')">
