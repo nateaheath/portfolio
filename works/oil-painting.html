@@ -272,6 +272,170 @@
         transition: none;
       }
     }
+
+body {
+  background: #0A0D0F;
+}
+
+/* Matte, translucent sidebar */
+.portfolio-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 10;
+
+  width: 260px;
+  padding: 42px 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 45px;
+
+  background: rgba(22, 26, 28, 0.72);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+
+  border-right: 1px solid rgba(223, 234, 240, 0.1);
+}
+
+.sidebar-name {
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.portfolio-sidebar .eyebrow {
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.portfolio-sidebar h1 {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.sidebar-description {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.portfolio-sidebar .back-link {
+  font-size: 10px;
+}
+
+/* Move the gallery beside the sidebar */
+.page {
+  width: auto;
+  margin: 0 0 0 260px;
+  padding: 65px clamp(24px, 4vw, 75px);
+}
+
+.page-header {
+  display: none;
+}
+
+/* Three staggered columns, like your reference */
+.gallery {
+  display: block;
+  columns: 3;
+  column-gap: clamp(24px, 3vw, 55px);
+  padding: 0;
+}
+
+.artwork,
+.artwork:nth-child(3n + 2),
+.artwork:nth-child(3n) {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 65px;
+  break-inside: avoid;
+  vertical-align: top;
+}
+
+.artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.artwork figcaption {
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.artwork-title {
+  font-weight: 400;
+}
+
+.artwork-details {
+  font-size: 10px;
+}
+
+.page-footer {
+  margin-top: 30px;
+}
+
+/* Two columns on smaller laptops */
+@media (max-width: 1100px) {
+  .gallery {
+    columns: 2;
+  }
+}
+
+/* Sidebar becomes a compact introduction on mobile */
+@media (max-width: 700px) {
+  .portfolio-sidebar {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    padding: 28px 24px;
+    gap: 30px;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(223, 234, 240, 0.1);
+  }
+
+  .portfolio-sidebar h1 {
+    font-size: 44px;
+  }
+
+  .sidebar-description {
+    max-width: 320px;
+    margin-top: 16px;
+  }
+
+  .page {
+    margin: 0;
+    padding: 0 0 35px;
+  }
+
+  .gallery {
+    columns: 2;
+    column-gap: 18px;
+    padding: 30px 20px 0;
+  }
+
+  .artwork,
+  .artwork:nth-child(3n + 2),
+  .artwork:nth-child(3n) {
+    margin-bottom: 35px;
+  }
+
+  .page-footer {
+    margin-inline: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery {
+    columns: 1;
+  }
+}
+    
   </style>
 </head>
 
@@ -285,14 +449,22 @@
     </header>
 
     <main>
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Nathanael Heath / Selected work</p>
-        <h1 id="page-title">Oil Painting</h1>
+ <aside class="portfolio-sidebar">
+  <a class="sidebar-name" href="../index.html">Nathanael Heath</a>
 
-        <p class="intro-description">
-          Paintings and studies in color, observation, and memory.
-        </p>
-      </section>
+  <div>
+    <p class="eyebrow">Selected works / 2026</p>
+    <h1 id="page-title">Oil<br>Painting</h1>
+
+    <p class="sidebar-description">
+      Paintings and studies in color, observation, and memory.
+    </p>
+  </div>
+
+  <a class="back-link" href="../index.html#works">
+    ← Back to works
+  </a>
+</aside>
 
       <section class="gallery" aria-label="Oil painting gallery">
 
