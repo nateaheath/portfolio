@@ -819,7 +819,14 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
 
   <h2>Assignments</h2>
   
- <div class="works-grid">
+
+<div class="assignment-browser">
+
+  <div class="assignment-pages" id="assignment-pages">
+
+    <!-- FIRST SET: Weeks 1–6 -->
+    <div class="assignment-set">
+      <div class="works-grid">
   <a class="work-card"
    href="assignments/week-1.html"
      style="--art: url('images/week-1.jpg')">
@@ -902,6 +909,46 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
   </div>
   
 </a>
+
+    </div>
+
+    <!-- SECOND SET: Weeks 7–12 -->
+    <div class="assignment-set">
+      <!-- Paste your Week 7 and Week 8 cards here -->
+      <!-- Add Weeks 9–12 here when ready -->
+    </div>
+
+  </div>
+
+  <div class="assignment-controls">
+    <button
+      class="assignment-arrow"
+      id="assignments-prev"
+      type="button"
+      aria-label="Previous assignments"
+      aria-controls="assignment-pages"
+      disabled
+    >
+      <span aria-hidden="true">←</span>
+    </button>
+
+    <span class="assignment-page-label" id="assignment-page-label"
+          aria-live="polite">
+      Weeks 1–6
+    </span>
+
+    <button
+      class="assignment-arrow"
+      id="assignments-next"
+      type="button"
+      aria-label="Next assignments"
+      aria-controls="assignment-pages"
+    >
+      <span aria-hidden="true">→</span>
+    </button>
+  </div>
+
+</div>
 
 </section>
 
