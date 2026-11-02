@@ -1177,12 +1177,56 @@ After Claes Oldenburg <span aria-hidden="true">&#8599;&#65038;</span>    </a>
   </div>
 
 <script>
+  
   document.querySelector(".hero-about-button").addEventListener("click", function () {
     const about = document.querySelector(".hero-about");
     const open = about.classList.toggle("open");
     this.setAttribute("aria-expanded", String(open));
   });
 </script>
+<script>
+(() => {
+  const pages = document.getElementById("assignment-pages");
+  const previous = document.getElementById("assignments-prev");
+  const next = document.getElementById("assignments-next");
+  const label = document.getElementById("assignment-page-label");
+  const sets = pages.querySelectorAll(".assignment-set");
 
+  let current = 0;
+
+  function updateControls() {
+    previous.disabled = current === 0;
+    next.disabled = current === sets.length - 1;
+
+    label.textContent = current === 0
+      ? "Weeks 1–6"
+      : "Weeks 7–12";
+  }
+
+  function moveTo(index) {
+    current = Math.max(0, Math.min(index, sets.length - 1));
+
+    pages.scrollTo({
+      left: current * pages.clientWidth,
+      behavior: window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches ? "auto" : "smooth"
+    });
+
+    updateControls();
+  }
+
+  previous.addEventListener("click", () => moveTo(current - 1));
+  next.addEventListener("click", () => moveTo(current + 1));
+
+  pages.addEventListener("scroll", () => {
+    current = Math.round(pages.scrollLeft / pages.clientWidth);
+    updateControls();
+  }, { passive: true });
+
+  updateControls();
+})();
+</script>
+  
 </body>
 </html>
