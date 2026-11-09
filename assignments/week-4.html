@@ -194,6 +194,30 @@ figcaption .artwork-details {
 figcaption .artwork-details {
   font-weight: 400;
 }
+    .week4-artist-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.week4-artist-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.week4-artist-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .week4-artist-gallery {
+    grid-template-columns: 1fr;
+  }
+}
     
   </style>
 </head>
